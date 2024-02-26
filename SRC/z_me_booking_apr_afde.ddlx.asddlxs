@@ -1,0 +1,56 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI: {
+     headerInfo: {   typeName: 'Booking',
+                     typeNamePlural: 'Bookings',
+                     title: {
+                     type: #STANDARD,
+                     value: 'booking_id' }
+                             }
+     }
+annotate view Z_C_BOOKING_APR_AFDE
+    with 
+{
+ @UI.facet: [{ id: 'Booking',
+               purpose: #STANDARD,
+               type: #IDENTIFICATION_REFERENCE ,
+               label: 'Booking',
+               position: 10 }]
+ @Search.defaultSearchElement: true
+    travel_id;
+ @UI: { lineItem: [ { position: 20, importance: #HIGH } ],
+        identification: [ { position: 20 } ] }
+ @Search.defaultSearchElement: true
+    booking_id;
+ @UI: { lineItem: [ { position: 30, importance: #HIGH } ],
+        identification: [ { position: 30 } ] }
+    booking_date;
+ @UI: { lineItem: [ { position: 40, importance: #HIGH } ],
+        identification: [ { position: 40 } ] }
+ @Consumption.valueHelpDefinition: [{entity: {name:'I_Customer', element: 'Customer' }}]
+ @Search.defaultSearchElement: true
+    customer_id;
+ @UI: { lineItem: [ { position: 50, importance: #HIGH } ],
+        identification: [ { position: 50 } ] }
+ @Consumption.valueHelpDefinition: [{entity: {name:'s_carrierv', element: 'Name' }}]
+    carrier_id;
+ @UI.hidden: true
+    CarrierName;
+ @UI: { lineItem: [ { position: 60, importance: #HIGH } ],
+        identification: [ { position: 60 } ] }
+    connection_id;
+  @UI: { lineItem: [ { position: 70, importance: #HIGH } ],
+        identification: [ { position: 70 } ] }
+    flight_date;
+  @UI: { lineItem: [ { position: 80, importance: #HIGH } ],
+                       identification: [ { position: 80 } ] }
+    flight_price;
+  @Consumption.valueHelpDefinition: [{entity: {name:'I_Currency', element: 'Currency' }}]
+    currency_code;
+  @UI: { lineItem: [ { position: 90, importance: #HIGH, label: 'Status' } ],
+                       identification: [ { position: 90, label: 'Status [N(New)| X(Canceled)| B(Booked)]' } ] }
+    booking_status;
+  @UI.hidden: true
+    last_change_at;
+    
+}

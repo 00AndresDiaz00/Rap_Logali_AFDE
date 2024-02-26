@@ -1,0 +1,10 @@
+@EndUserText.label: 'Service Definition'
+define service ZSD_TRAVEL_AFDE {
+  expose Z_C_TRAVEL_AFDE as Travel;
+  expose Z_C_BOOKING_AFDE as Booking;
+  expose Z_C_BOOKSUPPL_AFDE as BookingSupplement;
+  expose zi_agency_afde;
+  expose ZI_CUSTOMER_AFDE;
+  expose ZI_PROCT_AFDE;
+  expose ZI_CONNECTION_AFDE;
+}
